@@ -1,14 +1,92 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Efecto Black Mirror</title>
+  <title>Prueba Botones Diagnóstico Mejorado</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background-color: #111;
+      color: #00ff00;
+      font-family: 'Consolas', monospace;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .button-container {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      width: 90%;
+      max-width: 400px;
+    }
+
+    .boton-base {
+      position: relative;
+      padding: 15px;
+      font-size: 1rem;
+      background: transparent;
+      border: 2px solid #00ff00;
+      color: #00ff00;
+      border-radius: 10px;
+      cursor: pointer;
+      overflow: hidden;
+      text-align: left;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 8px #00ff00aa;
+    }
+
+    .boton-base::after {
+      content: ">";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      width: 50px; /* ANCHO DE LA FRANJA */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: transparent;
+      color: inherit;
+      font-size: 1.5rem;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .correcta::after {
+      background-color: #00ff00;
+      color: #111;
+    }
+
+    .incorrecta::after {
+      background-color: #ff0000;
+      color: #111;
+    }
+
+    .boton-base:hover {
+      background-color: #00ff00;
+      color: #111;
+    }
+
+    .correcta:hover::after {
+      background-color: #00ff00;
+    }
+
+    .incorrecta:hover::after {
+      background-color: #ff0000;
+    }
+  </style>
 </head>
 <body>
-  <div class="background"></div>
-  <div class="container">
-    <h1 class="glitch" data-text="EFECTO BLACK MIRROR">EFECTO BLACK MIRROR</h1>
+
+  <div class="button-container">
+    <button class="boton-base correcta">Correcta - Revisar Batería</button>
+    <button class="boton-base incorrecta">Incorrecta - Botón de encendido</button>
+    <button class="boton-base">Revisar Placa Base</button>
   </div>
+
 </body>
 </html>
