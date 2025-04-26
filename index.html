@@ -2,12 +2,12 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Prueba Botones Diagnóstico Mejorado</title>
+  <title>Prueba Botones Diagnóstico Mejorado - Estilo Final</title>
   <link rel="stylesheet" href="style.css">
   <style>
     body {
       background-color: #111;
-      color: #00ff00;
+      color: #00afff;
       font-family: 'Consolas', monospace;
       display: flex;
       flex-direction: column;
@@ -30,14 +30,14 @@
       padding: 15px;
       font-size: 1rem;
       background: transparent;
-      border: 2px solid #00ff00;
-      color: #00ff00;
+      border: 2px solid #00afff; /* borde general azul */
+      color: #00afff; /* texto azul */
       border-radius: 10px;
       cursor: pointer;
       overflow: hidden;
       text-align: left;
       transition: all 0.3s ease;
-      box-shadow: 0 0 8px #00ff00aa;
+      box-shadow: 0 0 8px #00afffaa; /* luz azul */
     }
 
     .boton-base::after {
@@ -53,59 +53,49 @@
       background-color: transparent;
       color: inherit;
       font-size: 1.5rem;
-      transition: background-color 0.3s, color 0.3s;
+      transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+      border-left: 2px solid transparent; /* borde interno */
     }
 
-    /* Estilos para botones correctos */
-    .correcta {
-      border-color: #00ff00;
-      color: #00ff00;
-      box-shadow: 0 0 8px #00ff00aa;
-    }
-
+    /* Correcta: franja verde */
     .correcta::after {
       background-color: #00ff00;
       color: #111;
+      border-left: 2px solid #00ff00;
     }
 
-    .correcta:hover {
-      background-color: #00ff00;
-      color: #111;
-      box-shadow: 0 0 15px #00ff00;
-    }
-
-    /* Estilos para botones incorrectos */
-    .incorrecta {
-      border-color: #ff0000;
-      color: #ff0000;
-      box-shadow: 0 0 8px #ff0000aa;
-    }
-
+    /* Incorrecta: franja roja */
     .incorrecta::after {
       background-color: #ff0000;
       color: #111;
+      border-left: 2px solid #ff0000;
     }
 
+    /* Hover para Correcta */
+    .correcta:hover {
+      background-color: rgba(0, 255, 0, 0.15); /* suave verde transparente */
+      box-shadow: 0 0 15px #00ff00;
+    }
+
+    /* Hover para Incorrecta */
     .incorrecta:hover {
-      background-color: #ff0000;
-      color: #111;
+      background-color: rgba(255, 0, 0, 0.15); /* suave rojo transparente */
       box-shadow: 0 0 15px #ff0000;
     }
 
-    /* Hover para los botones normales (no correctos ni incorrectos) */
+    /* Hover para botones normales */
     .boton-base:not(.correcta):not(.incorrecta):hover {
-      background-color: #00ff00;
-      color: #111;
-      box-shadow: 0 0 15px #00ff00;
+      background-color: rgba(0, 175, 255, 0.2); /* azul suave */
+      box-shadow: 0 0 15px #00afff;
     }
   </style>
 </head>
 <body>
 
   <div class="button-container">
-    <button class="boton-base correcta">Correcta - Revisar Batería</button>
-    <button class="boton-base incorrecta">Incorrecta - Botón de encendido</button>
-    <button class="boton-base">Revisar Placa Base</button>
+    <button class="boton-base correcta">Correcta - Batería OK</button>
+    <button class="boton-base incorrecta">Incorrecta - Botón de encendido fallando</button>
+    <button class="boton-base">Revisar circuito de carga</button>
   </div>
 
 </body>
